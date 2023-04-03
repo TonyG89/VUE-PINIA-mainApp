@@ -5,7 +5,7 @@
     style="height: 500px"
     :columnDefs="columnDefs"
     :rowData="logbook"
-    :defaultColDef="defaultColDef"
+    :defaultColDef="defaultColDef.pinnedBottomRowConfig"
     rowSelection="multiple"
     animateRows="true"
     @cell-clicked="cellWasClicked"
@@ -20,7 +20,7 @@ import 'ag-grid-community/styles/ag-theme-alpine.css';
 import { AgGridVue } from 'ag-grid-vue3'; // the AG Grid Vue Component
 import { onMounted, ref } from 'vue';
 import { fetchData } from '../methods/fetchData.js';
-import CustomDate from '../helpers/customDate.js';
+// import CustomDate from '../helpers/customDate.js';
 
 const gridApi = ref(null); // Optional - for accessing Grid's API
 
@@ -82,6 +82,7 @@ const dataTableParams = {
   editable: true,
   cellEditor: DatePicker,
   cellEditorPopup: true,
+  flex:0,
 };
 
 const logbook = ref([]);
@@ -124,22 +125,22 @@ onMounted(() => {
     const headerArray = Object.keys(remoteRowData.data[0]);
     console.log(headerArray);
 
-      
     columnDefs.value = Object.assign(
       headerArray.map((headTitle) => {
-
-        if (dataTableParams.field === headTitle) {
-          Object.assign(headTitle, dataTableParams);
-        }
-
-        return {
+        const defaults = {
           field: headTitle,
           title: headTitle,
         };
+        
+        if (dataTableParams.field === headTitle) {
+          return Object.assign(defaults, dataTableParams);
+        }
+
+        return defaults;
       })
     );
 
-   console.log(columnDefs.value);
+    console.log(columnDefs.value);
   });
 });
 </script>

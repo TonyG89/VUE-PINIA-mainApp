@@ -1,27 +1,18 @@
 <template>
-  <h2>Breweries</h2>
-  <!-- <div>{{ allBreweries }}</div> -->
-  <!-- <h1 v-for="brewery in mainStore.breweriesOnPage.name" :key="mainStore.breweriesOnPage.id" :text="brewery">{{ brewery }}</h1> -->
-  <div
-    class="bg-blue-500 hover:bg-blue-700"
-    v-for="brew in mainStore.breweriesOnPage"
-    :key="brew.id"
-  >
-    {{ brew.name }}
+  <h2>Calendar</h2>
+  <div class="bg-stone-500">
+    <CalendarTask />
   </div>
-  <div class="bg-stone-500">{{ breweries }}</div>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-import { useMainStore } from "../stores/mainStore";
+import { ref, computed } from 'vue';
+import { useMainStore } from '../stores/mainStore';
+import CalendarTask from '../components/CalendarTask.vue';
 
 const mainStore = useMainStore();
 
 mainStore.getBreweriesOnPage(3);
-
-const breweries = ref([]);
-breweries = mainStore.getAllBreweries();
 
 const componentState = computed(() => ({
   allBreweries: [{ name: mainStore.allBreweries }],
