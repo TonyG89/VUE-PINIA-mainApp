@@ -1,25 +1,37 @@
 <template>
   <h1>CALENDAR:</h1>
-  <p>{{ getCurrentDate }}</p>
-  <CalendarMonth :currentDate="today" :otherMonth="-1" />
-  <CalendarMonth :currentDate="today" />
-  <CalendarMonth :currentDate="today" :otherMonth="next" />
+  <p>{{ today }}</p>
+  <button @click="onChangeCalendar">{{ btn }}</button>
+  <CalendarMonth v-if="btn === 'Три'" :currentDate="today" :otherMonth="-1" />
+  <div class="flex">
+    <CalendarMonth :currentDate="today" />
+    <CalendarList v-if="isCalendarList"/>
+  </div>
+  <CalendarMonth v-if="btn === 'Три'" :currentDate="today" :otherMonth="1" />
 </template>
 
 <script setup>
 import { ref, computed } from 'vue';
 import CalendarMonth from './CalendarMonth.vue';
+import CalendarList from './CalendarList.vue';
 
-const last = -1;
-const next = 1;
+const currentDate = new Date();
 
-const currentDate = ref(new Date());
+const isCalendarList = ref(true)
 
 const today = computed(() => ({
-  month: currentDate.value.getMonth(),
-  year: currentDate.value.getFullYear(),
-  day: currentDate.value.getDate(),
+  month: currentDate.getMonth(),
+  year: currentDate.getFullYear(),
+  day: currentDate.getDate(),
 }));
+
+const btn = ref('Один');
+
+const onChangeCalendar = () => {
+  if (btn.value !== 'Три') {
+    btn.value = 'Три';
+  } else btn.value = 'Один';
+};
 
 console.log(today.value);
 console.log(today.year);

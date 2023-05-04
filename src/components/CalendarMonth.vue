@@ -16,7 +16,7 @@
       <li
         v-for="i in daysArr"
         :key="i"
-        @click="(e) => console.log(e.value)"
+        @click="dayClick"
         class="p-2 border w-[50px] rounded hover:bg-amber-300 hover:text-amber-900"
         :class="
           i === currentDate.day &&
@@ -41,8 +41,12 @@ const weekDayNumber = new Date(
 ).getUTCDay();
 const daysArr = [];
 daysArr.length = weekDayNumber;
+
 for (let i = 1; i <= days; i++) daysArr.push(i);
 console.log(daysArr);
+
+const dayClick = (e)=>console.log(e)
+
 const weekDay = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'];
 const monthName = [
   'Январь',
