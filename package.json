@@ -13,9 +13,13 @@
     "ag-grid-community": "^29.2.0",
     "ag-grid-vue3": "^29.2.0",
     "pinia": "^2.0.33",
+    "sass": "^1.62.1",
+    "tailwindcss": "^3.3.2",
     "uuid": "^9.0.0",
     "vitest": "^0.29.3",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-router": "^4.0.13",
+    "vuetify": "^3.2.4"
   },
   "devDependencies": {
     "@types/uuid": "^9.0.1",
@@ -23,7 +27,10 @@
     "@vitest/coverage-c8": "^0.29.3",
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.21",
-    "tailwindcss": "^3.2.7",
     "vite": "^4.1.0"
-  }
+  },
+  "description": "This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.",
+  "main": "vite.config.js",
+  "author": "",
+  "license": "ISC"
 }

@@ -1,0 +1,71 @@
+const clothes = [{
+  "id": 1,
+  "title": "худі",
+  "link": "1",
+  "brand": [0, 1],
+  "size": ["S",
+    "M",
+    "L",
+    "XL",
+    "XXL"],
+  "color": "чорний",
+  "price": 600,
+  "category": "hoodies",
+  "rating": 0
+},
+{
+  "id": 2,
+  "title": "світшот",
+  "link": "4",
+  "brand": [0,
+    1],
+  "size": ["S",
+    "M",
+    "L",
+    "XL",
+    "XXL"],
+  "color": "чорний",
+  "price": 350,
+  "category": "sweatshirts",
+  "rating": 0
+},
+{
+  "id": 3,
+  "title": "футболка",
+  "link": "7",
+  "brand": [0,
+    1],
+  "size": ["S",
+    "M",
+    "L",
+    "XL",
+    "XXL"],
+  "color": "чорна",
+  "price": 150,
+  "category": "tshirts",
+  "rating": 0
+},
+{
+  "id": 4,
+  "title": "худі",
+  "link": "2",
+  "brand": [0,
+    1],
+  "size": ["S",
+    "M",
+    "L",
+    "XL",
+    "XXL"],
+  "color": "сірий",
+  "price": 600,
+  "category": "hoodies",
+  "rating": 0
+},
+{
+  "id": 5,
+  "title": "світшот",
+  "link": "5",
+  "brand": [0, 1], "size": ["S", "M", "L", "XL", "XXL"], "color": "сірий", "price": 350, "category": "sweatshirts", "rating": 0
+}, { "id": 6, "title": "футболка", "link": "8", "brand": [0, 1], "size": ["S", "M", "L", "XL", "XXL"], "color": "сіра", "price": 150, "category": "tshirts", "rating": 0 }, { "id": 7, "title": "худі", "link": "3", "brand": [0, 1], "size": ["S", "M", "L", "XL", "XXL"], "color": "білий", "price": 550, "category": "hoodies", "rating": 0 }, { "id": 8, "title": "світшот", "link": "6", "brand": [0, 1], "size": ["S", "M", "L", "XL", "XXL"], "color": "білий", "price": 330, "category": "sweatshirts", "rating": 0 }, { "id": 9, "title": "футболка", "link": "9", "brand": [0, 1], "size": ["S", "M", "L", "XL", "XXL"], "color": "біла", "price": 120, "category": "tshirts", "rating": 0 }]
+
+export default clothes
