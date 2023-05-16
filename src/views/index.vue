@@ -18,13 +18,7 @@
     <v-row>
       <v-col cols="12">
         <v-row v-show="!grid">
-          <v-col
-            v-for="(item) in clothes"
-            :key="item.id"
-            cols="12"
-            lg="4"
-            sm="6"
-          >
+          <v-col v-for="item in clothes" :key="item.id" cols="12" lg="4" sm="6">
             <!-- КОМПОНЕНТ КАРТОЧКА -->
             <v-card class="">
               <v-img :src="svgImages[item.category]" height="200px">
@@ -96,7 +90,7 @@
         </v-row>
         <v-row v-show="grid">
           <!-- КОМПОНЕНТ КАРТОЧКА -->
-          <v-col v-for="(item) in clothes" :key="item.id" class="" cols="12">
+          <v-col v-for="item in clothes" :key="item.id" class="" cols="12">
             <v-card class="d-flex">
               <v-col cols="4">
                 <v-img :src="svgImages[item.category]" height="200px">
@@ -176,16 +170,18 @@
 </template>
 
 <script setup>
-import clothes from '@/data.js';
-import svgImages from '@/svgImages';
-import stData from '@/staticData';
-import ItemList from '~~/components/ItemList.vue';
-import { useCartStore } from '~~/stores/cart';
+import { ref } from 'vue';
+import clothes from '../data.js';
+import svgImages from '../svgImages';
+import stData from '../composables/staticData';
+import ItemList from '../components/ItemList.vue';
+import { useCartStore } from '../stores/cart';
 
 const cartStore = useCartStore();
 
 // Список всех товаров на странице (масив объектов) [{}]
-const clothesList = ref(clothes);
+const clothesList = ref([]);
+clothesList.value = clothes;
 
 // ВЫВОД ТОВАРОВ - СЕТКА TOOGLE GRID
 const grid = ref(false);
@@ -196,10 +192,10 @@ const toggleGrid = () => {
 
 // Добавление айди товара в корзину
 const addToCart = (e) => {
-  const clothesId = e.currentTarget.getAttribute('clothes-id')
+  const clothesId = e.currentTarget.getAttribute('clothes-id');
   // console.log(e.currentTarget.parentNode.parentNode.textContent);
   cartStore.add(clothesId);
-  console.log(cartStore)
+  console.log(cartStore);
 };
 </script>
 

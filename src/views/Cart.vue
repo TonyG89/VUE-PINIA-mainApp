@@ -9,7 +9,7 @@
               <v-col sm="4">
                 <div class="d-flex">
                   <img
-                    src="@/assets/img/hoody.svg"
+                    src="./assets/img/hoody.svg"
                     alt=""
                     style="width:90px;height:90px object-fit:cover;"
                   />
@@ -80,7 +80,7 @@ import { ref } from 'vue';
 // import clothes from '@/data.js';
 // import svgImages from '@/svgImages';
 // import stData from '@/staticData';
-import { useCartStore } from '@/stores/cart';
+import { useCartStore } from '../stores/cart';
 
 const cartStore = useCartStore();
 const addedList = ref(cartStore.infoCart);

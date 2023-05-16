@@ -1,6 +1,6 @@
 <template>
   <v-app-bar>
-    <v-toolbar-title class="pointer" @click="this.$router.push('/')">
+    <v-toolbar-title class="pointer" @click="this.$router.replace('/')">
       <v-icon x-large>mdi-youtube</v-icon>TooMuch
     </v-toolbar-title>
     <v-spacer />
@@ -9,7 +9,7 @@
     <router-link to="/cart">Cart</router-link>
     <router-link to="/404">404</router-link>
     <v-spacer />
-    <v-btn class="text-none" stacked @click="this.$router.push('/cart')">
+    <v-btn class="text-none" stacked @click="this.$router.replace('/cart')">
       <v-badge :content="1" color="amber-lighten-2"
         ><v-icon>mdi-cart-outline</v-icon></v-badge
       >телега
