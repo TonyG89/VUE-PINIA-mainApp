@@ -16,13 +16,18 @@ export const useCartStore = defineStore('cart', {
         // из айди создаем объект
 
         const entity = this.idCart[productId]
+
+        // основной объект
+        const object = clothesObj[productId]
+
         return ({
           id: productId,
-          image: clothesObj[productId].img || null,
-          name: clothesObj[productId].title,
-          price: clothesObj[productId].price,
+          image: object.link || null,
+          name: object.title,
+          info: `${object.brand[0]} ${object.size} ${object.color}`,
+          price: object.price,
           quantity: entity.quantity,
-          cost: clothesObj[productId].price * entity.quantity
+          cost: object.price * entity.quantity
         })
       })
     },
@@ -41,10 +46,23 @@ export const useCartStore = defineStore('cart', {
           quantity: 1
         }
       }
-
       this.countInCart++
       // debugger
     },
-
+    remove(productId) {
+      if (!this.idCart[productId]) {
+        return
+      }
+      this.idCart[productId] -= 1
+      this.countInCart--
+      if (this.idCart[productId].quantity === 0) {
+        delete this.idCart[productId]
+      }
+    },
+    removeProduct(productId) {
+      this.idCart[productId] -= 1
+      this.countInCart-=this.idCart[productId].quantity
+        delete this.idCart[productId]
+    }
   },
 })

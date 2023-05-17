@@ -10,9 +10,14 @@
     <router-link to="/404">404</router-link>
     <v-spacer />
     <v-btn class="text-none" stacked @click="this.$router.replace('/cart')">
-      <v-badge :content="1" color="amber-lighten-2"
-        ><v-icon>mdi-cart-outline</v-icon></v-badge
-      >телега
+      <v-badge
+        :dot="!cartStore.countInCart"
+        :content="cartStore.countInCart"
+        color="amber-lighten-2"
+      >
+        <v-icon>mdi-cart-outline </v-icon>
+      </v-badge>
+      телега
     </v-btn>
     <v-btn
       class="text-none"

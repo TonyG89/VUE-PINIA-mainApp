@@ -2,18 +2,22 @@
   <v-row class="py-6">
     <v-col md="8">
       <v-card>
-        <v-card-title class="text-capitalize">корзина</v-card-title>
+        <v-card-title class="text-capitalize">Корзина</v-card-title>
         <v-card-text v-if="addedList.length">
           <div v-for="item in addedList" :key="item.id" class="mb-3">
             <v-row>
               <v-col sm="4">
                 <div class="d-flex">
                   <img
-                    src="./assets/img/hoody.svg"
+                    src="../assets/img/hoody.svg"
                     alt=""
                     style="width:90px;height:90px object-fit:cover;"
                   />
-                  <h3>item.name</h3>
+                  <div class="d-flex flex-column border">
+                    <h2>{{ item.name }}</h2>
+                    <i>{{ item.info }}</i>
+                    <h3>{{ item.price }}грн х {{ item.quantity }}шт.</h3>
+                  </div>
                 </div>
               </v-col>
               <v-col sm="8">
@@ -22,23 +26,23 @@
                     <span
                       class="icon d-flex"
                       style="cursor: pointer"
-                      @click="cartStore.add(item.id)"
+                      @click="plusItem"
                     >
                       <v-icon>mdi-plus</v-icon>
                     </span>
                     <span class="number d-flex">{{ item.quantity }}</span>
-                    <!-- <span
+                    <span
                       class="icon d-flex"
                       style="cursor: pointer"
                       @click="cartStore.remove(item.id)"
                     >
                       <v-icon>mdi-minus</v-icon>
-                    </span> -->
+                    </span>
                   </div>
                   <p>{{ item.quantity * item.price }} <strong>sum</strong></p>
-                  <!-- <v-btn @click="cartStore.removeProduct(item.id)" icon>
+                  <v-btn @click="cartStore.removeProduct(item.id)" icon>
                     <v-icon color="red">mdi-delete</v-icon>
-                  </v-btn> -->
+                  </v-btn>
                 </div>
               </v-col>
             </v-row>
@@ -65,7 +69,7 @@
           </div>
           <div class="d-flex">
             <p>order total</p>
-            <p class="text-primary">$0</p>
+            <p class="text-primary">{{  }}</p>
           </div>
           <v-btn block>checkout</v-btn>
         </v-card-text>
@@ -84,8 +88,10 @@ import { useCartStore } from '../stores/cart';
 
 const cartStore = useCartStore();
 const addedList = ref(cartStore.infoCart);
-console.log(addedList.value);
-console.log(cartStore);
+
+const plusItem = (item) => {
+  cartStore.add(item.id);
+};
 </script>
 
 <style lang="scss" scoped></style>
