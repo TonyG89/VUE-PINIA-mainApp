@@ -175,7 +175,7 @@ import clothes from '../data.js';
 import svgImages from '../svgImages';
 import stData from '../composables/staticData';
 import ItemList from '../components/ItemList.vue';
-import { useCartStore } from '../stores/cart';
+import { useCartStore } from '../stores/cartStore';
 
 const cartStore = useCartStore();
 

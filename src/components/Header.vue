@@ -11,8 +11,8 @@
     <v-spacer />
     <v-btn class="text-none" stacked @click="this.$router.replace('/cart')">
       <v-badge
-        :dot="!cartStore.countInCart"
-        :content="cartStore.countInCart"
+        :dot="!cartStore.countInCartGetter"
+        :content="cartStore.countInCartGetter"
         color="amber-lighten-2"
       >
         <v-icon>mdi-cart-outline </v-icon>
@@ -31,7 +31,7 @@
 
 <script setup>
 import { RouterLink } from 'vue-router';
-import { useCartStore } from '../stores/cart';
+import { useCartStore } from '../stores/cartStore';
 
 const cartStore = useCartStore();
 console.log(cartStore.countInCart);
