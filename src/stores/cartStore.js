@@ -41,8 +41,6 @@ export const useCartStore = defineStore('cart', {
         console.log(Object.values(this.infoCart))
         return acc + cost
       }, 0)
-
-       
     }
   },
   actions: {
